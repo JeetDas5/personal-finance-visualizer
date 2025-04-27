@@ -47,7 +47,7 @@ export const TransactionList: React.FC<TransactionListProps> = ({
   }
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl mx-auto">
+    <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl mx-10 max-h-[90vh] overflow-scroll overflow-x-hidden scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
       <h2 className="text-2xl font-semibold mb-6 text-blue-600 text-center">Recent Transactions</h2>
       <ul className="space-y-4">
         {transactions.map((transaction) => (

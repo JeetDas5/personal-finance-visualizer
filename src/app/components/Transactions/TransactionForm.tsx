@@ -3,11 +3,11 @@
 import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { TransactionFormProps, TransactionFormState } from "../../types/TransactionsType";
+import { TransactionFormProps, TransactionFormState } from "../../../types/TransactionsType";
 import Categories from "@/types/Categories";
-import Loader from "./Loader";
+import Loader from "../Global/Loader";
 
-export const TransactionForm: React.FC<TransactionFormProps> = ({ isEditing, selectedTransaction ,refreshTransactions}: TransactionFormProps) => {
+export const TransactionForm: React.FC<TransactionFormProps> = ({ isEditing, selectedTransaction, refreshTransactions }: TransactionFormProps) => {
   const [formState, setFormState] = useState<TransactionFormState>({
     amount: "",
     date: "",
@@ -66,9 +66,9 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ isEditing, sel
         category: "",
         description: "",
       });
-     if (refreshTransactions) {
-       refreshTransactions();
-     }
+      if (refreshTransactions) {
+        refreshTransactions();
+      }
     } catch (error) {
       console.error("Error submitting transaction:", error);
       toast.error("Failed to submit transaction.");
@@ -80,7 +80,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ isEditing, sel
   return (
     <>
       {loading && <Loader />}
-      <form onSubmit={handleSubmit} className="bg-white p-5 rounded-lg shadow-md max-w-3xl mb-4 mx-auto">
+      <form onSubmit={handleSubmit} className="bg-white p-5 rounded-lg shadow-md max-w-3xl mb-4 mx-10">
         <h2 className="text-xl font-semibold mb-5 text-blue-600">{isEditing ? "Edit" : "Add"} Transaction</h2>
         <div className="mb-4">
           <label className="block text-gray-700">Amount</label>
@@ -130,7 +130,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ isEditing, sel
         </div>
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded-lg cursor-pointer"
+          className="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 rounded-lg cursor-pointer"
         >
           {isEditing ? "Update Transaction" : "Add Transaction"}
         </button>

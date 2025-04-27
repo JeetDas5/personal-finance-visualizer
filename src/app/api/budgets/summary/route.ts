@@ -34,9 +34,13 @@ export async function GET() {
       };
     });
 
+    //Total Budget
+    const totalBudget = budgets.reduce((acc, budget) => acc + budget.amount, 0);
+
     return NextResponse.json(
       {
         message: "Budget summary fetched successfully",
+        totalBudget,
         budgetComparision,
       },
       { status: 200 }

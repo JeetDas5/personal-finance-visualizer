@@ -2,6 +2,6 @@
 
 
 body {
-  @apply bg-gradient-to-r from-blue-500 via-purple-400 to-pink-400;
+  @apply bg-gradient-to-r from-blue-200 via-cyan-100 to-blue-100;
   font-family: 'Poppins', sans-serif;
 }

@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
 import React, { useEffect, useState } from "react";
-import { Dashboard } from "../components/Dashboard";
+import { Dashboard } from "../components/Global/Dashboard";
 import axios from "axios";
-import Loader from "../components/Loader";
+import Loader from "../components/Global/Loader";
 
 const HomePage = () => {
     const [transactions, setTransactions] = useState([]);
@@ -35,7 +36,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <Dashboard transactions={transactions} budgets={budgets} refreshTransactions={refreshTransactions} />
+            <Dashboard transactions={transactions} refreshTransactions={refreshTransactions} />
         </div>
     );
 };

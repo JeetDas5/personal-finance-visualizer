@@ -1,17 +1,20 @@
+import { Transaction } from "@/types/TransactionsType";
 import React from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
 interface CategoryPieChartProps {
-  transactions: any[];
+  transactions: Transaction[];
 }
 
 export const CategoryPieChart = ({ transactions }: CategoryPieChartProps) => {
-  const categoryData = transactions.reduce((acc, transaction) => {
-    const category = transaction.category;
-    if (!acc[category]) acc[category] = 0;
-    acc[category] += transaction.amount;
-    return acc;
-  }, {});
+  const categoryData: { [key: string]: number } = {};
+  transactions.forEach((transaction) => {
+    const category = transaction.category || "Uncategorized";
+    if (!categoryData[category]) {
+      categoryData[category] = 0;
+    }
+    categoryData[category] += transaction.amount!;
+  });
 
   const data = Object.keys(categoryData).map((key) => ({
     name: key,
