@@ -10,7 +10,7 @@ const Footer = () => {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-lg font-semibold"
+          className="text-lg font-semibold text-center"
         >
           © {new Date().getFullYear()} Personal Finance Dashboard
         </motion.div>
