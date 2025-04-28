@@ -1,11 +1,10 @@
-import { runCors } from "@/lib/cors";
+
 import dbConnect from "@/lib/db";
 import Budget from "@/models/Budget";
 import Transactions from "@/models/Transactions";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  await runCors({}, {});
   await dbConnect();
 
   try {

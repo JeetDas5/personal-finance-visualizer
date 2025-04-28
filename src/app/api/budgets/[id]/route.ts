@@ -1,4 +1,4 @@
-import { runCors } from "@/lib/cors";
+
 import dbConnect from "@/lib/db";
 import Budget from "@/models/Budget";
 import { NextResponse } from "next/server";
@@ -9,7 +9,6 @@ export async function PUT(
   context: { params: { id: string } }
 ) {
   try {
-    await runCors(request, {});
     await dbConnect();
     const { id: budgetId } = await context.params;
     const body = await request.json();
@@ -48,7 +47,6 @@ export async function DELETE(
   context: { params: { id: string } }
 ) {
   try {
-    await runCors(request, {});
     await dbConnect();
     const { id: budgetId } = await context.params;
 

@@ -3,14 +3,12 @@ import Transactions from "@/models/Transactions";
 import { NextResponse } from "next/server";
 import {Transaction} from "@/types/TransactionsType";
 import Categories from "@/types/Categories";
-import { runCors } from "@/lib/cors";
 
 //Update a transaction
 export async function PUT(
   request: Request,
   context: { params: { id: string } }
 ) {
-  // await runCors(request, {});
   try {
     await connectDB();
     const { id } = await context.params;
@@ -57,7 +55,6 @@ export async function DELETE(
   request: Request,
   context: { params: { id: string } }
 ) {
-  await runCors(request, {});
   try {
     await connectDB();
     const { params } = await context;

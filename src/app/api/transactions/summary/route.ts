@@ -1,11 +1,9 @@
 import dbConnect from "@/lib/db";
 import { NextResponse } from "next/server";
 import Transaction from "@/models/Transactions";
-import { runCors } from "@/lib/cors";
 
 //Get the summary of transactions
 export async function GET() {
-  await runCors({}, {});
   try {
     await dbConnect();
     const transaction = await Transaction.find({}).sort({ date: -1 });
