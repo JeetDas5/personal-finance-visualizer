@@ -2,10 +2,12 @@ import dbConnect from "@/lib/db";
 import { NextResponse } from "next/server";
 import Budget from "@/models/Budget";
 import Categories from "@/types/Categories";
+import { runCors } from "@/lib/cors";
 
 //Create a new budget
 export async function POST(request: Request) {
   try {
+    await runCors(request, {});
     await dbConnect();
     const { category, amount, month } = await request.json();
 

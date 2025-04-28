@@ -2,9 +2,11 @@ import connectDB from "../../../lib/db";
 import Transactions from "@/models/Transactions";
 import { NextResponse } from "next/server";
 import Categories from "@/types/Categories";
+import { runCors } from "@/lib/cors";
 
 //Create a new transaction
 export async function POST(request: Request) {
+  await runCors(request, {});
   try {
     await connectDB();
     const body = await request.json();

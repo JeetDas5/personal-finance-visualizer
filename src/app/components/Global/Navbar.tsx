@@ -24,7 +24,7 @@ const Navbar = ({
             <button
               key={tab}
               onClick={() => setActiveTab(tab.toLowerCase())}
-              className={`px-4 py-2 rounded-full font-medium transition ${
+              className={`px-4 py-2 rounded-full font-medium cursor-pointer transition ${
                 activeTab === tab.toLowerCase()
                   ? "bg-blue-600 text-white"
                   : "bg-blue-100 text-blue-600 hover:bg-blue-200"

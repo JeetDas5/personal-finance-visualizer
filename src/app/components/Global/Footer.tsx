@@ -22,14 +22,14 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex gap-6 text-sm"
         >
-          <a href="#features" className="hover:underline">
-            Features
+          <a href="https://github.com/JeetDas5" className="hover:underline">
+            Github
           </a>
-          <a href="#insights" className="hover:underline">
-            Insights
+          <a href="https://www.linkedin.com/in/jeet-das-7633a52ab" className="hover:underline">
+            LinkedIn
           </a>
-          <a href="#budget" className="hover:underline">
-            Budget
+          <a href="https://x.com/I_am_Jeet5" className="hover:underline">
+            X
           </a>
         </motion.div>
 

@@ -1,14 +1,16 @@
 import connectDB from "../../../../lib/db";
 import Transactions from "@/models/Transactions";
 import { NextResponse } from "next/server";
-import TransactionsType from "@/types/TransactionsType";
+import {Transaction} from "@/types/TransactionsType";
 import Categories from "@/types/Categories";
+import { runCors } from "@/lib/cors";
 
 //Update a transaction
 export async function PUT(
   request: Request,
   context: { params: { id: string } }
 ) {
+  // await runCors(request, {});
   try {
     await connectDB();
     const { id } = await context.params;
@@ -16,9 +18,9 @@ export async function PUT(
     if (!id) {
       return new Response("Transaction ID is required", { status: 400 });
     }
-    const updatedTransaction: TransactionsType = {};
+    const updatedTransaction: Transaction = {};
     if (body.description) {
-      updatedTransaction.title = body.title;
+      updatedTransaction.description = body.title;
     }
     if (body.amount) {
       updatedTransaction.amount = body.amount;
@@ -55,6 +57,7 @@ export async function DELETE(
   request: Request,
   context: { params: { id: string } }
 ) {
+  await runCors(request, {});
   try {
     await connectDB();
     const { params } = await context;
