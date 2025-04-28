@@ -1,7 +1,3 @@
-Awesome — here's your upgraded, **professional** `README.md` with **badges**, **MIT license**, and your **deployed link**:
-
----
-
 # 💰 Budget and Transaction Manager
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
