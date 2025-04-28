@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
@@ -23,15 +23,18 @@ interface DashboardProps {
   refreshTransactions?: () => void;
 }
 
-export const Dashboard = ({ transactions, refreshTransactions }: DashboardProps) => {
+export const Dashboard = ({
+  transactions,
+  refreshTransactions,
+}: DashboardProps) => {
   const [budgets, setBudgets] = useState<Budget[]>([]);
-  const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
+  const [selectedTransaction, setSelectedTransaction] =
+    useState<Transaction | null>(null);
   const [selectedBudget, setSelectedBudget] = useState<Budget | null>(null);
   const [budgetTotal, setBudgetTotal] = useState<number>(0);
   const [actualTotal, setActualTotal] = useState<number>(0);
   const [activeTab, setActiveTab] = useState("home");
 
-  // Fetch budgets
   const fetchBudgets = async () => {
     try {
       const response = await axios.get("/api/budgets");
@@ -41,7 +44,6 @@ export const Dashboard = ({ transactions, refreshTransactions }: DashboardProps)
     }
   };
 
-  // Fetch total budget
   const fetchBudgetSummary = async () => {
     try {
       const response = await axios.get("/api/budgets/summary");
@@ -51,7 +53,6 @@ export const Dashboard = ({ transactions, refreshTransactions }: DashboardProps)
     }
   };
 
-  // Fetch total actual expenses
   const fetchTransactionSummary = async () => {
     try {
       const response = await axios.get("/api/transactions/summary");
@@ -107,18 +108,13 @@ export const Dashboard = ({ transactions, refreshTransactions }: DashboardProps)
     setSelectedBudget(null);
   };
 
-
   return (
     <div className="max-h-screen overflow-hidden">
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
-
       <div className="max-w-7xl mx-auto pt-8 px-5">
-        {/* <h1 className="text-4xl font-bold text-center text-blue-600">Personal Finance Dashboard</h1> */}
-
-        {/* Hero Section */}
-        {activeTab === "home" && <Hero onGetStarted={() => setActiveTab("transactions")} />}
-
-        {/* Main Content */}
+        {activeTab === "home" && (
+          <Hero onGetStarted={() => setActiveTab("transactions")} />
+        )}
         <main className="max-w-7xl mx-auto py-10 px-5 space-y-10">
           <AnimatePresence mode="wait">
             <motion.div
@@ -128,30 +124,35 @@ export const Dashboard = ({ transactions, refreshTransactions }: DashboardProps)
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-
               {activeTab === "transactions" && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <TransactionForm isEditing={!!selectedTransaction}
+                  <TransactionForm
+                    isEditing={!!selectedTransaction}
                     selectedTransaction={selectedTransaction}
-                    refreshTransactions={handleRefresh} />
-                  <TransactionList transactions={transactions}
+                    refreshTransactions={handleRefresh}
+                  />
+                  <TransactionList
+                    transactions={transactions}
                     onEdit={handleTransactionEdit}
-                    onDelete={handleTransactionDelete} />
+                    onDelete={handleTransactionDelete}
+                  />
                 </div>
               )}
-
 
               {activeTab === "budgets" && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <BudgetForm isEditing={!!selectedBudget}
+                  <BudgetForm
+                    isEditing={!!selectedBudget}
                     selectedBudget={selectedBudget!}
-                    refreshBudgets={handleRefresh} />
-                  <BudgetList budgets={budgets}
+                    refreshBudgets={handleRefresh}
+                  />
+                  <BudgetList
+                    budgets={budgets}
                     onEdit={handleBudgetEdit}
-                    onDelete={handleBudgetDelete} />
+                    onDelete={handleBudgetDelete}
+                  />
                 </div>
               )}
-
 
               {activeTab === "analytics" && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -162,57 +163,16 @@ export const Dashboard = ({ transactions, refreshTransactions }: DashboardProps)
 
               {activeTab === "insights" && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  <BudgetVsActualChart budget={budgetTotal} actual={actualTotal} />
+                  <BudgetVsActualChart
+                    budget={budgetTotal}
+                    actual={actualTotal}
+                  />
                   <SpendingInsights budget={budgetTotal} actual={actualTotal} />
                 </div>
               )}
             </motion.div>
           </AnimatePresence>
-
-
-
-
         </main>
-        {/* Forms Section
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <TransactionForm
-            isEditing={!!selectedTransaction}
-            selectedTransaction={selectedTransaction}
-            refreshTransactions={handleRefresh}
-          />
-          <BudgetForm
-            isEditing={!!selectedBudget}
-            selectedBudget={selectedBudget!}
-            refreshBudgets={handleRefresh}
-          />
-        </div> */}
-
-        {/* Lists Section */}
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <TransactionList
-            transactions={transactions}
-            onEdit={handleTransactionEdit}
-            onDelete={handleTransactionDelete}
-          />
-          <BudgetList
-            budgets={budgets}
-            onEdit={handleBudgetEdit}
-            onDelete={handleBudgetDelete}
-          />
-        </div> */}
-
-
-        {/* Charts Section
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-          <MonthlyBarChart transactions={transactions} />
-          <CategoryPieChart transactions={transactions} />
-        </div>
-
-        {/* Insights Section */}
-        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-          <BudgetVsActualChart budget={budgetTotal} actual={actualTotal} />
-          <SpendingInsights budget={budgetTotal} actual={actualTotal} />
-        </div> */}
       </div>
     </div>
   );

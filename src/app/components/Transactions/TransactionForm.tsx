@@ -31,8 +31,14 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ isEditing, sel
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Validate amount is positive
+    if (!formState.amount || !formState.date || !formState.category || !formState.description) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+    if(formState.date > new Date().toISOString().slice(0, 10)) {
+      toast.error("Date cannot be in the future");
+      return;
+    }
     if (parseInt(formState.amount) <= 0) {
       toast.error("Amount should be a positive value");
       return;
@@ -59,7 +65,6 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ isEditing, sel
         toast.success("Transaction added!");
       }
 
-      // Clear form
       setFormState({
         amount: "",
         date: "",
