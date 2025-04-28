@@ -9,8 +9,8 @@ interface BudgetListProps {
 
 const BudgetList: React.FC<BudgetListProps> = ({ budgets, onEdit, onDelete }) => {
     return (
-        <div className="bg-white p-5 rounded-lg shadow-md max-w-3xl text-center mx-10 max-h-[90vh] overflow-scroll overflow-x-hidden my-4">
-            <h2 className="text-xl font-semibold mb-5 text-blue-600 text-center">Budgets</h2>
+        <div className="bg-white p-5 rounded-lg shadow-md max-w-3xl text-center mx-10 max-h-[90vh] overflow-scroll overflow-x-hidden">
+            <h2 className="text-2xl font-semibold mb-6 text-blue-600 text-center">Budgets</h2>
             <ul className="space-y-4">
                 {budgets.map((budget) => (
                     <li key={budget._id} className="flex justify-between items-center border border-gray-300 p-4 rounded-lg hover:shadow-md transition duration-300 ease-in-out transform hover:scale-103">

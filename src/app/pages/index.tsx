@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Dashboard } from "../components/Global/Dashboard";
 import axios from "axios";
 import Loader from "../components/Global/Loader";
+import Footer from "../components/Global/Footer";
 
 const HomePage = () => {
     const [transactions, setTransactions] = useState([]);
@@ -32,11 +33,16 @@ const HomePage = () => {
     }, []);
 
 
-    if (loading) return <Loader />;
+    if (loading) return <>
+        <div className="w-full h-screen">
+            <Loader />
+        </div>
+    </>;
 
     return (
-        <div>
+        <div className="overflow-x-hidden h-screen">
             <Dashboard transactions={transactions} refreshTransactions={refreshTransactions} />
+            <Footer/>
         </div>
     );
 };
