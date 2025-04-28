@@ -7,7 +7,13 @@
 ---
 
 A responsive full-stack application that helps users **track their budgets** and **manage transactions** effortlessly.  
-Built with a **clean UI**, **mobile-first design**, and **smooth user interactions**.
+Built with a **clean UI** and **smooth user interactions**.
+
+---
+
+## 🌍 Live Demo
+
+> 🌟 [Visit the deployed site](https://finance-jeet.vercel.app) 🌟
 
 ---
 
@@ -15,17 +21,17 @@ Built with a **clean UI**, **mobile-first design**, and **smooth user interactio
 
 - ✅ Add, edit, and delete **transactions**
 - ✅ Set and manage **monthly budgets**
-- ✅ **Responsive Design** (Mobile + Desktop)
-- ✅ **Overflow control** for better UX
+- ✅ View Budget vs Actual spendings
+- ✅ Spending Insights
+- ✅ **Responsive Design** 
 - ✅ **Hover effects** and smooth **transition animations**
-- ✅ **External links** open safely in **new tabs**
 
 ---
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: Next.js, Tailwind CSS
-- **Backend**: Node.js along with NextJs API routes
+- **Backend**: Node.js along with Next.Js API routes
 - **Database**: MongoDB
 
 ---
@@ -75,11 +81,6 @@ Go to [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 🌍 Live Demo
-
-> 🌟 [Visit the deployed site](https://finance-jeet.vercel.app) 🌟
-
----
 
 ## 🌐 Links
 
