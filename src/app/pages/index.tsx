@@ -40,7 +40,7 @@ const HomePage = () => {
     </>;
 
     return (
-        <div className="overflow-x-hidden h-screen">
+        <div className="overflow-x-hidden min-h-screen">
             <Dashboard transactions={transactions} refreshTransactions={refreshTransactions} />
             <Footer/>
         </div>

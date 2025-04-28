@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Awesome — here's your upgraded, **professional** `README.md` with **badges**, **MIT license**, and your **deployed link**:
 
-## Getting Started
+---
 
-First, run the development server:
+# 💰 Budget and Transaction Manager
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![Made with Next.js](https://img.shields.io/badge/Made%20with-Next.js-black)](https://nextjs.org/)
+[![Deployed on Vercel](https://img.shields.io/badge/Deployed-Vercel-black)](https://nance-jeet.vercel.app)
+
+---
+
+A responsive full-stack application that helps users **track their budgets** and **manage transactions** effortlessly.  
+Built with a **clean UI**, **mobile-first design**, and **smooth user interactions**.
+
+---
+
+## 🚀 Features
+
+- ✅ Add, edit, and delete **transactions**
+- ✅ Set and manage **monthly budgets**
+- ✅ **Responsive Design** (Mobile + Desktop)
+- ✅ **Overflow control** for better UX
+- ✅ **Hover effects** and smooth **transition animations**
+- ✅ **External links** open safely in **new tabs**
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js, Tailwind CSS
+- **Backend**: Node.js along with NextJs API routes
+- **Database**: MongoDB
+
+---
+
+## 📦 Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/JeetDas5/personal-finance-visualizer.git
+cd personal-finance-visualizer
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Set Up Environment Variables
+
+Create a `.env.local` file in the root directory and add your MongoDB connection string:
+
+```bash
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/<database>?retryWrites=true&w=majority
+```
+
+Replace `<username>`, `<password>`, and `<database>` with your MongoDB credentials.
+
+### 4. Start the Development Server
+
+Run the following command to start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+or if using Vite:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. Open in Browser
 
-## Learn More
+Go to [http://localhost:3000](http://localhost:3000)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌍 Live Demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+> 🌟 [Visit the deployed site](https://finance-jeet.vercel.app) 🌟
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🌐 Links
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [GitHub](https://github.com/JeetDas5)
+- [LinkedIn](https://www.linkedin.com/in/jeet-das-7633a52ab)
+- [X (Twitter)](https://x.com/I_am_Jeet5)
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](./LICENSE).  
+You are free to use, modify, and distribute this project.
+
+---
+
+# ✨ Thanks for reading!

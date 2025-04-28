@@ -109,7 +109,7 @@ export const Dashboard = ({
   };
 
   return (
-    <div className="max-h-screen overflow-hidden">
+    <div className="h-full md:max-h-screen overflow-hidden">
       <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
       <div className="max-w-7xl mx-auto pt-8 px-5">
         {activeTab === "home" && (
@@ -140,7 +140,7 @@ export const Dashboard = ({
               )}
 
               {activeTab === "budgets" && (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6">
                   <BudgetForm
                     isEditing={!!selectedBudget}
                     selectedBudget={selectedBudget!}

@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import Categories from "@/types/Categories";
 import Loader from "../Global/Loader";
-import { Budget } from "@/types/Budgets"
+import { Budget } from "@/types/Budgets";
 
 interface BudgetFormProps {
   isEditing: boolean;
@@ -12,7 +12,11 @@ interface BudgetFormProps {
   refreshBudgets: () => void;
 }
 
-const BudgetForm: React.FC<BudgetFormProps> = ({ isEditing, selectedBudget, refreshBudgets }) => {
+const BudgetForm: React.FC<BudgetFormProps> = ({
+  isEditing,
+  selectedBudget,
+  refreshBudgets,
+}) => {
   const [formState, setFormState] = useState({
     category: "",
     amount: "",
@@ -46,22 +50,33 @@ const BudgetForm: React.FC<BudgetFormProps> = ({ isEditing, selectedBudget, refr
       setFormState({ category: "", amount: "", month: "" });
       refreshBudgets();
     } catch (error) {
-      console.error(error);
-      toast.error("Failed to submit budget.");
+      if (axios.isAxiosError(error) && error.response?.status === 409) {
+        toast.error("Budget for this month already exists.");
+      } else {
+        console.error(error);
+        toast.error("Failed to submit budget.");
+      }
     }
     setLoading(false);
   };
   return (
     <>
       {loading && <Loader />}
-      <form onSubmit={handleSubmit} className="bg-white max-w-3xl p-5 rounded-lg shadow-md mb-10 text-center mx-10">
-        <h2 className="text-xl font-semibold mb-5 text-blue-600">{isEditing ? "Edit" : "Add"} Budget</h2>
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-5 rounded-lg shadow-md w-full md:w-[40vw] text-center md:text-start flex flex-col gap-4"
+      >
+        <h2 className="text-2xl text-center font-semibold mb-5 text-blue-600">
+          {isEditing ? "Edit" : "Add"} Budget
+        </h2>
         <div className="mb-4">
           <label className="block text-gray-700">Category</label>
           <select
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-4 py-2 border rounded-lg cursor-pointer"
             value={formState.category}
-            onChange={(e) => setFormState({ ...formState, category: e.target.value })}
+            onChange={(e) =>
+              setFormState({ ...formState, category: e.target.value })
+            }
             required
           >
             <option value="">Select a category</option>
@@ -78,7 +93,9 @@ const BudgetForm: React.FC<BudgetFormProps> = ({ isEditing, selectedBudget, refr
             type="number"
             className="w-full px-4 py-2 border rounded-lg"
             value={formState.amount}
-            onChange={(e) => setFormState({ ...formState, amount: e.target.value })}
+            onChange={(e) =>
+              setFormState({ ...formState, amount: e.target.value })
+            }
             required
           />
         </div>
@@ -86,13 +103,18 @@ const BudgetForm: React.FC<BudgetFormProps> = ({ isEditing, selectedBudget, refr
           <label className="block text-gray-700">Month</label>
           <input
             type="month"
-            className="w-full px-4 py-2 border rounded-lg"
+            className="w-full px-4 py-2 border rounded-lg cursor-pointer"
             value={formState.month}
-            onChange={(e) => setFormState({ ...formState, month: e.target.value })}
+            onChange={(e) =>
+              setFormState({ ...formState, month: e.target.value })
+            }
             required
           />
         </div>
-        <button type="submit" className="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 rounded-lg cursor-pointer">
+        <button
+          type="submit"
+          className="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 rounded-lg cursor-pointer"
+        >
           {isEditing ? "Update Budget" : "Add Budget"}
         </button>
       </form>

@@ -6,7 +6,6 @@ const Footer = () => {
   return (
     <footer className="bg-gradiant-r from-blue-300 via-blue-200 to-blue-100 text-blue-800 py-8 px-5 ">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-        
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -22,13 +21,28 @@ const Footer = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex gap-6 text-sm"
         >
-          <a href="https://github.com/JeetDas5" className="hover:underline">
+          <a
+            href="https://github.com/JeetDas5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
             Github
           </a>
-          <a href="https://www.linkedin.com/in/jeet-das-7633a52ab" className="hover:underline">
+          <a
+            href="https://www.linkedin.com/in/jeet-das-7633a52ab"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
             LinkedIn
           </a>
-          <a href="https://x.com/I_am_Jeet5" className="hover:underline">
+          <a
+            href="https://x.com/I_am_Jeet5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
             X
           </a>
         </motion.div>
@@ -41,7 +55,6 @@ const Footer = () => {
         >
           Made with 💙 by Jeet
         </motion.div>
-
       </div>
     </footer>
   );
